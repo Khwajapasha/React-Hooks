@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import Card from '../UI/Card';
-import './IngredientForm.css';
+import Card from "../UI/Card";
+import "./IngredientForm.css";
 
-const IngredientForm = React.memo(props => {
-  const submitHandler = event => {
+const IngredientForm = React.memo((props) => {
+  const submitHandler = (event) => {
     event.preventDefault();
     // ...
   };
