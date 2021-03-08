@@ -3,6 +3,7 @@ import React from "react";
 import "./ErrorModal.css";
 
 const ErrorModal = React.memo((props) => {
+  console.log("what is props===>", props);
   return (
     <React.Fragment>
       <div className="backdrop" onClick={props.onClose} />
