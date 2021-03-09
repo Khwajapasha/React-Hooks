@@ -11,7 +11,7 @@ const Ingredients = () => {
     const GUID = uuidv4();
     setUserIngredient((prevIngredient) => [
       ...prevIngredient,
-      // { id: Math.random().toString(), ...ingredients },
+
       { id: GUID, ...value },
     ]);
   };
