@@ -9,7 +9,7 @@ const Ingredients = () => {
   const ingredientGUID = uuidv4();
   const addIngredientsHandler = (Ingredients) => {
     fetch(
-      "https://react-hooks-49032-default-rtdb.firebaseio.com/Ingredients.json"
+      "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json"
     );
     setUserIngredient((userIngredient) => [
       ...userIngredient,
