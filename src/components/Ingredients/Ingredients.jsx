@@ -1,20 +1,30 @@
 import React, { useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import IngredientForm from "./IngredientForm";
 import Search from "./Search";
 import IngredientList from "./IngredientList";
 const Ingredients = () => {
   const [userIngredient, setUserIngredient] = useState([]);
   // Adding Ingredient Into List
-  const ingredientGUID = uuidv4();
+  // const ingredientGUID = uuidv4();
   const addIngredientsHandler = (Ingredients) => {
     fetch(
-      "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json"
-    );
-    setUserIngredient((userIngredient) => [
-      ...userIngredient,
-      { id: ingredientGUID, ...Ingredients },
-    ]);
+      "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json",
+      {
+        method: "POST",
+        body: JSON.stringify(Ingredients),
+        header: { "Content-Type": "Application/json" },
+      }
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((responseData) => {
+        setUserIngredient((userIngredient) => [
+          ...userIngredient,
+          { id: responseData.name, ...Ingredients },
+        ]);
+      });
   };
 
   // Deleting Ingredient From List
