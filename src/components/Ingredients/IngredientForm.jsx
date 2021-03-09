@@ -21,7 +21,7 @@ const IngredientForm = React.memo((props) => {
             <input
               type="text"
               id="title"
-              value={enteredTitle}
+              value={enteredTitle || ""}
               onChange={(e) => setEnteredTitle(e.target.value)}
             />
           </div>
@@ -30,7 +30,7 @@ const IngredientForm = React.memo((props) => {
             <input
               type="number"
               id="amount"
-              value={enteredAmount}
+              value={enteredAmount || ""}
               onChange={(e) => setEnteredAmount(e.target.value)}
             />
           </div>
