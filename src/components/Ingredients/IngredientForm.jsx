@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import Card from "../UI/Card";
 import "./IngredientForm.css";
 
-const IngredientForm = React.memo((value) => {
+const IngredientForm = React.memo((props) => {
   const [enteredTitle, setEnteredTitle] = useState();
   const [enteredAmount, setEnteredAmount] = useState();
 
   const submitHandler = (event) => {
     event.preventDefault();
-    value.onAddIngredient({ title: enteredTitle, amount: enteredAmount });
+    props.onAddIngredient({ title: enteredTitle, amount: enteredAmount });
   };
 
   return (
