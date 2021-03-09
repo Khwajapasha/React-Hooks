@@ -6,9 +6,11 @@ import IngredientList from "./IngredientList";
 const Ingredients = () => {
   const [userIngredient, setUserIngredient] = useState([]);
   // Adding Ingredient Into List
-
+  const ingredientGUID = uuidv4();
   const addIngredientsHandler = (Ingredients) => {
-    const ingredientGUID = uuidv4();
+    fetch(
+      "https://react-hooks-49032-default-rtdb.firebaseio.com/Ingredients.json"
+    );
     setUserIngredient((userIngredient) => [
       ...userIngredient,
       { id: ingredientGUID, ...Ingredients },
