@@ -7,12 +7,11 @@ const Ingredients = () => {
   const [userIngredient, setUserIngredient] = useState([]);
   // Adding Ingredient Into List
 
-  const addIngredientsHandler = (value) => {
+  const addIngredientsHandler = (Ingredients) => {
     const GUID = uuidv4();
     setUserIngredient((prevIngredient) => [
       ...prevIngredient,
-
-      { id: GUID, ...value },
+      { id: GUID, ...Ingredients },
     ]);
   };
 
@@ -28,7 +27,7 @@ const Ingredients = () => {
 
       <section>
         <Search />
-        <IngredientList value={userIngredient} onRemoveItem={() => {}} />
+        <IngredientList Ingredients={userIngredient} onRemoveItem={() => {}} />
       </section>
     </div>
   );
