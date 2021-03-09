@@ -16,18 +16,21 @@ const Ingredients = () => {
   };
 
   // Deleting Ingredient From List
-  // const deleteIngredientHandler = (ingredientId) => {
-  //   setUserIngredient((prevIngredient) =>
-  //     prevIngredient.filter((ingredient) => ingredient.id !== ingredientId)
-  //   );
-  // };
+  const deleteIngredientHandler = (ingredientId) => {
+    setUserIngredient((prevIngredient) =>
+      prevIngredient.filter((ingredient) => ingredient.id !== ingredientId)
+    );
+  };
   return (
     <div className="App">
       <IngredientForm onAddIngredient={addIngredientsHandler} />
 
       <section>
         <Search />
-        <IngredientList Ingredients={userIngredient} onRemoveItem={() => {}} />
+        <IngredientList
+          Ingredients={userIngredient}
+          onRemoveItem={deleteIngredientHandler}
+        />
       </section>
     </div>
   );
