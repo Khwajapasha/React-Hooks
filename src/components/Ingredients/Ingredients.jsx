@@ -8,10 +8,10 @@ const Ingredients = () => {
   // Adding Ingredient Into List
 
   const addIngredientsHandler = (Ingredients) => {
-    const GUID = uuidv4();
+    const ingredientGUID = uuidv4();
     setUserIngredient((prevIngredient) => [
       ...prevIngredient,
-      { id: GUID, ...Ingredients },
+      { id: ingredientGUID, ...Ingredients },
     ]);
   };
 
