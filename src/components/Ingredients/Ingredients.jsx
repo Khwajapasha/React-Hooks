@@ -56,6 +56,8 @@ const Ingredients = () => {
       userIngredient.filter((ingredient) => ingredient.id !== ingredientId)
     );
   };
+
+  // Fetching data from FireBase & filtering it
   return (
     <div className="App">
       <IngredientForm onAddIngredient={addIngredientsHandler} />

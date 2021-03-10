@@ -5,7 +5,24 @@ import "./Search.css";
 
 const Search = React.memo((props) => {
   const [enteredFilterData, setEnteredFilterData] = useState("");
-  useEffect(() => {}, [enteredFilterData]);
+
+  useEffect(() => {
+    fetch(
+      "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json"
+    )
+      .then((response) => response.json())
+      .then((responseData) => {
+        const loadedIngredient = [];
+        for (const key in responseData) {
+          loadedIngredient.push({
+            id: key,
+            title: responseData[key].title,
+            amount: responseData[key].amount,
+          });
+        }
+        // setUserIngredient(loadedIngredient);
+      });
+  }, [enteredFilterData]);
   return (
     <section className="search">
       <Card>
