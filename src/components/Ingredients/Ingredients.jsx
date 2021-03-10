@@ -5,7 +5,7 @@ import IngredientList from "./IngredientList";
 const Ingredients = () => {
   const [userIngredient, setUserIngredient] = useState([]);
 
-  // Fetching Data from database
+  // Fetching Data from database (FireBase)
   useEffect(() => {
     fetch(
       "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json"
@@ -23,12 +23,13 @@ const Ingredients = () => {
         setUserIngredient(loadedIngredient);
       });
   }, []);
+
+  // useEffect for testing purpose
   useEffect(() => {
     console.log("testing useEffect==>");
   }, []);
 
   // Adding Ingredient Into List & Storing in data base (FireBase)
-
   const addIngredientsHandler = (Ingredients) => {
     fetch(
       "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json",
