@@ -24,9 +24,9 @@ const Ingredients = () => {
         setUserIngredient(loadedIngredient);
       });
   }, []);
-  // useEffect(() => {
-  //   console.log("testing useEffect==>");
-  // });
+  useEffect(() => {
+    console.log("testing useEffect==>");
+  });
   fetch(
     "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json"
   )
