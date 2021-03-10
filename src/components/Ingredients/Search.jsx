@@ -4,11 +4,17 @@ import Card from "../UI/Card";
 import "./Search.css";
 
 const Search = React.memo((props) => {
+  const { onLoadIngredients } = props;
   const [enteredFilterData, setEnteredFilterData] = useState("");
 
   useEffect(() => {
+    const query =
+      enteredFilterData.length === 0
+        ? ""
+        : `?orderBy="title"&equalTo="${enteredFilterData}"`;
     fetch(
-      "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json"
+      "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json" +
+        query
     )
       .then((response) => response.json())
       .then((responseData) => {
@@ -20,9 +26,13 @@ const Search = React.memo((props) => {
             amount: responseData[key].amount,
           });
         }
-        // setUserIngredient(loadedIngredient);
+
+        onLoadIngredients(loadedIngredient);
       });
-  }, [enteredFilterData]);
+  }, [enteredFilterData, onLoadIngredients]);
+  useEffect(() => {
+    console.log("Rendering Test");
+  });
   return (
     <section className="search">
       <Card>

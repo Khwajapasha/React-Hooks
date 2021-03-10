@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import IngredientForm from "./IngredientForm";
 import Search from "./Search";
 import IngredientList from "./IngredientList";
@@ -58,12 +58,15 @@ const Ingredients = () => {
   };
 
   // Fetching data from FireBase & filtering it
+  const filterIngredientHandler = useCallback((filteredIngredient) => {
+    setUserIngredient(filteredIngredient);
+  }, []);
   return (
     <div className="App">
       <IngredientForm onAddIngredient={addIngredientsHandler} />
 
       <section>
-        <Search />
+        <Search onLoadIngredients={filterIngredientHandler} />
         <IngredientList
           Ingredients={userIngredient}
           onRemoveItem={deleteIngredientHandler}
