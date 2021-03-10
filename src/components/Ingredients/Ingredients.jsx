@@ -28,7 +28,7 @@ const Ingredients = () => {
     console.log("testing useEffect==>");
   }, []);
 
-  // Adding Ingredient Into List
+  // Adding Ingredient Into List & Storing in data base (FireBase)
   // const ingredientGUID = uuidv4();
   const addIngredientsHandler = (Ingredients) => {
     fetch(
