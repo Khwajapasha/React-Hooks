@@ -45,7 +45,7 @@ const Ingredients = () => {
       .then((responseData) => {
         setUserIngredient((userIngredient) => [
           ...userIngredient,
-          { id: responseData.name, ...Ingredients },
+          { ...Ingredients, id: responseData.name },
         ]);
       });
   };
