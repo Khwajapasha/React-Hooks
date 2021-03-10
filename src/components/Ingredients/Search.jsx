@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Card from "../UI/Card";
 import "./Search.css";
 
 const Search = React.memo((props) => {
+  const [enteredFilterData, setEnteredFilterData] = useState("");
   return (
     <section className="search">
       <Card>
