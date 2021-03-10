@@ -24,24 +24,24 @@ const Ingredients = () => {
         setUserIngredient(loadedIngredient);
       });
   }, []);
-  useEffect(() => {
-    console.log("testing useEffect==>");
-  });
-  // fetch(
-  //   "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json"
-  // )
-  //   .then((response) => response.json())
-  //   .then((responseData) => {
-  //     const loadedIngredient = [];
-  //     for (const key in responseData) {
-  //       loadedIngredient.push({
-  //         id: key,
-  //         title: responseData[key].title,
-  //         amount: responseData[key].amount,
-  //       });
-  //     }
-  //     // setUserIngredient(loadedIngredient);
-  //   });
+  // useEffect(() => {
+  //   console.log("testing useEffect==>");
+  // });
+  fetch(
+    "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json"
+  )
+    .then((response) => response.json())
+    .then((responseData) => {
+      const loadedIngredient = [];
+      for (const key in responseData) {
+        loadedIngredient.push({
+          id: key,
+          title: responseData[key].title,
+          amount: responseData[key].amount,
+        });
+      }
+      // setUserIngredient(loadedIngredient);
+    });
   // Adding Ingredient Into List
   // const ingredientGUID = uuidv4();
   const addIngredientsHandler = (Ingredients) => {
