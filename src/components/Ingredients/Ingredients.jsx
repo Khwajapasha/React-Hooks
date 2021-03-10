@@ -29,7 +29,7 @@ const Ingredients = () => {
   }, []);
 
   // Adding Ingredient Into List & Storing in data base (FireBase)
-  // const ingredientGUID = uuidv4();
+
   const addIngredientsHandler = (Ingredients) => {
     fetch(
       "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json",
