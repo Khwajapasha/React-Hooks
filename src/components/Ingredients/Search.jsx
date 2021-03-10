@@ -7,6 +7,7 @@ const Search = React.memo((props) => {
   const { onLoadIngredients } = props;
   const [enteredFilterData, setEnteredFilterData] = useState("");
 
+  // Fetch data from firebase & Showing filtered data
   useEffect(() => {
     const query =
       enteredFilterData.length === 0
