@@ -21,9 +21,9 @@ const Ingredients = () => {
             amount: responseData[key].amount,
           });
         }
-        // setUserIngredient(loadedIngredient);
+        setUserIngredient(loadedIngredient);
       });
-  });
+  }, []);
 
   // Adding Ingredient Into List
   // const ingredientGUID = uuidv4();
