@@ -23,17 +23,17 @@
 
 // export default Emoji;
 
-import React, { useState } from "react";
-import EmojiTextarea from "react-emoji-textarea";
+// import React, { useState } from "react";
+// import EmojiTextarea from "react-emoji-textarea";
 
-const Emoji = () => {
-  const [submit, setSubmit] = useState(false);
-  const [text, setText] = useState("");
-  return (
-    <div>
-      <EmojiTextarea />
-    </div>
-  );
-};
+// const Emoji = () => {
+//   const [submit, setSubmit] = useState(false);
+//   const [text, setText] = useState("");
+//   return (
+//     <div>
+//       <EmojiTextarea />
+//     </div>
+//   );
+// };
 
 export default Emoji;
