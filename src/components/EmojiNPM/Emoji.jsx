@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 // import Picker from "emoji-picker-react";
-import InputEmoji from "react-input-emoji";
+import TextAreaEmoji from "react-input-emoji";
 
 const Emoji = () => {
   //   const [chosenEmoji, setChosenEmoji] = useState(null);
@@ -14,7 +14,7 @@ const Emoji = () => {
   }
   return (
     <div>
-      <InputEmoji
+      <TextAreaEmoji
         value={text}
         onChange={setText}
         cleanOnEnter
