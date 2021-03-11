@@ -23,7 +23,7 @@
 
 // export default Emoji;
 
-import React from "react";
+import React, { useState } from "react";
 import EmojiTextarea from "react-emoji-textarea";
 
 const Emoji = () => {
