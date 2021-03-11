@@ -7,7 +7,7 @@ const App = (props) => {
   return (
     <div>
       <Ingredients />
-      <Emoji />
+      {/* <Emoji /> */}
     </div>
   );
 };
