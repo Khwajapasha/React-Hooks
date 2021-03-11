@@ -1,5 +1,4 @@
 import React from "react";
-// import Emoji from "./components/EmojiNPM/Emoji";
 
 import Ingredients from "./components/Ingredients/Ingredients";
 
