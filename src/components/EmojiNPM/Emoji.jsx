@@ -1,14 +1,10 @@
-import React, { useState, useRef } from "react";
-// import Picker from "emoji-picker-react";
+import React, { useState } from "react";
+
 import TextAreaEmoji from "react-input-emoji";
 
 const Emoji = () => {
-  //   const [chosenEmoji, setChosenEmoji] = useState(null);
   const [text, setText] = useState("");
 
-  //   const onEmojiClick = (event, emojiObject) => {
-  //     setChosenEmoji(emojiObject);
-  //   };
   function handleOnEnter(text) {
     console.log("enter", text);
   }
