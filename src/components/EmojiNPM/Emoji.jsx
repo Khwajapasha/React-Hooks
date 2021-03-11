@@ -27,6 +27,8 @@ import React from "react";
 import EmojiTextarea from "react-emoji-textarea";
 
 const Emoji = () => {
+  const [submit, setSubmit] = useState(false);
+  const [text, setText] = useState("");
   return <div></div>;
 };
 
