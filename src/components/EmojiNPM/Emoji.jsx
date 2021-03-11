@@ -22,3 +22,12 @@
 // };
 
 // export default Emoji;
+
+import React from "react";
+import EmojiTextarea from "react-emoji-textarea";
+
+const Emoji = () => {
+  return <div></div>;
+};
+
+export default Emoji;
