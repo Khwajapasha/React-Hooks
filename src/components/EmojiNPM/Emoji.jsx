@@ -29,7 +29,11 @@ import EmojiTextarea from "react-emoji-textarea";
 const Emoji = () => {
   const [submit, setSubmit] = useState(false);
   const [text, setText] = useState("");
-  return <div></div>;
+  return (
+    <div>
+      <EmojiTextarea />
+    </div>
+  );
 };
 
 export default Emoji;
