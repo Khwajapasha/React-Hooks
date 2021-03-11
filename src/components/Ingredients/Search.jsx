@@ -34,7 +34,7 @@ const Search = React.memo((props) => {
           });
       }
     }, 1000);
-  }, [enteredFilterData, onLoadIngredients]);
+  }, [enteredFilterData, onLoadIngredients, inputRef]);
 
   // Testing useEffect
 
