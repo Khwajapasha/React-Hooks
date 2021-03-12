@@ -52,6 +52,12 @@ const Ingredients = () => {
 
   // Deleting Ingredient From List
   const deleteIngredientHandler = (ingredientId) => {
+    fetch(
+      "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json",
+      {
+        method: "POST",
+      }
+    );
     setUserIngredient((userIngredient) =>
       userIngredient.filter((ingredient) => ingredient.id !== ingredientId)
     );
