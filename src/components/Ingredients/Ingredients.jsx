@@ -62,12 +62,21 @@ const Ingredients = () => {
       {
         method: "DELETE",
       }
-    ).then((response) => {
-      setIsLoading(false);
-      setUserIngredient((userIngredient) =>
-        userIngredient.filter((ingredient) => ingredient.id !== ingredientId)
-      );
-    });
+    )
+      .then((response) => {
+        setIsLoading(false);
+        setUserIngredient((userIngredient) =>
+          userIngredient.filter((ingredient) => ingredient.id !== ingredientId)
+        );
+      })
+      .catch((error) => {
+        setShowError(error.message);
+        setIsLoading(false);
+      });
+  };
+
+  const clearErrorModal = () => {
+    setShowError(null);
   };
 
   // Fetching data from FireBase & filtering it
@@ -76,6 +85,9 @@ const Ingredients = () => {
   }, []);
   return (
     <div className="App">
+      {showError && (
+        <ErrorModal onClose={clearErrorModal}>{showError}</ErrorModal>
+      )}
       <IngredientForm
         onAddIngredient={addIngredientsHandler}
         loading={isLoading}
