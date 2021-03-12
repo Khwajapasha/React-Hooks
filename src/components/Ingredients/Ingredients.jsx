@@ -4,6 +4,7 @@ import Search from "./Search";
 import IngredientList from "./IngredientList";
 const Ingredients = () => {
   const [userIngredient, setUserIngredient] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Fetching Data from database (FireBase)
   // useEffect(() => {
@@ -31,6 +32,7 @@ const Ingredients = () => {
 
   // Adding Ingredient Into List & Storing in data base (FireBase)
   const addIngredientsHandler = (Ingredients) => {
+    setIsLoading(true);
     fetch(
       "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json",
       {
@@ -40,6 +42,7 @@ const Ingredients = () => {
       }
     )
       .then((response) => {
+        setIsLoading(false);
         return response.json();
       })
       .then((responseData) => {
@@ -52,12 +55,14 @@ const Ingredients = () => {
 
   // Deleting Ingredient From List
   const deleteIngredientHandler = (ingredientId) => {
+    setIsLoading(true);
     fetch(
       `https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput/${ingredientId}.json`,
       {
         method: "DELETE",
       }
     ).then((response) => {
+      setIsLoading(false);
       setUserIngredient((userIngredient) =>
         userIngredient.filter((ingredient) => ingredient.id !== ingredientId)
       );
@@ -70,7 +75,10 @@ const Ingredients = () => {
   }, []);
   return (
     <div className="App">
-      <IngredientForm onAddIngredient={addIngredientsHandler} />
+      <IngredientForm
+        onAddIngredient={addIngredientsHandler}
+        loading={isLoading}
+      />
 
       <section>
         <Search onLoadIngredients={filterIngredientHandler} />
