@@ -6,7 +6,7 @@ import ErrorModal from "../UI/ErrorModal";
 const Ingredients = () => {
   const [userIngredient, setUserIngredient] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [showError, setShowError] = useState();
   // Fetching Data from database (FireBase)
   // useEffect(() => {
   //   fetch(
