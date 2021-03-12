@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import IngredientForm from "./IngredientForm";
 import Search from "./Search";
 import IngredientList from "./IngredientList";
+import ErrorModal from "../UI/ErrorModal";
 const Ingredients = () => {
   const [userIngredient, setUserIngredient] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
