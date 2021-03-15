@@ -16,9 +16,28 @@ const ingredientReducer = (currentIngredients, action) => {
       throw new Error("Should not be get ");
   }
 };
+
+const httpReducer = (currentHttpState, action) => {
+  switch (action.type) {
+    case "SEND":
+      return { loading: true, error: null };
+    case "RESPONSE":
+      return;
+    case "ERROR":
+      return;
+    case "CLEAR":
+      return;
+    default:
+      throw new Error("Should not be reached");
+  }
+};
 const Ingredients = () => {
   // const [userIngredient, setUserIngredient] = useState([]);
   const [userIngredients, dispatch] = useReducer(ingredientReducer, []);
+  const [httpState, dispatchHttp] = useReducer(httpReducer, {
+    loading: false,
+    error: null,
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [showError, setShowError] = useState();
   // Fetching Data from database (FireBase)
