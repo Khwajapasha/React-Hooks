@@ -6,6 +6,11 @@ import ErrorModal from "../UI/ErrorModal";
 
 const ingredientReducer = (currentIngredient, action) => {
   switch (action.type) {
+    case "SEND":
+    case "ADD":
+    case "DELETE":
+    default:
+      throw new Error("Should not be get ");
   }
 };
 const Ingredients = () => {
