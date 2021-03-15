@@ -9,7 +9,7 @@ const ingredientReducer = (currentIngredients, action) => {
     case "SET":
       return action.ingredients;
     case "ADD":
-      return [...currentIngredients, action.ingredients];
+      return [...currentIngredients, action.userIngredients];
     case "DELETE":
       return currentIngredients.filter((ing) => ing.id !== action.id);
     default:
@@ -18,7 +18,7 @@ const ingredientReducer = (currentIngredients, action) => {
 };
 const Ingredients = () => {
   // const [userIngredient, setUserIngredient] = useState([]);
-  const [useIngredients, dispatch] = useReducer(ingredientReducer, []);
+  const [userIngredients, dispatch] = useReducer(ingredientReducer, []);
   const [isLoading, setIsLoading] = useState(false);
   const [showError, setShowError] = useState();
   // Fetching Data from database (FireBase)
@@ -45,6 +45,12 @@ const Ingredients = () => {
     console.log("testing useEffect==>");
   }, []);
 
+  // Fetching data from FireBase & filtering it
+  const filterIngredientHandler = useCallback((filteredIngredient) => {
+    // setUserIngredient(filteredIngredient);
+    dispatch({ type: "SET", ingredients: filteredIngredient });
+  }, []);
+
   // Adding Ingredient Into List & Storing in data base (FireBase)
   const addIngredientsHandler = (Ingredients) => {
     setIsLoading(true);
@@ -67,7 +73,7 @@ const Ingredients = () => {
         // ]);
         dispatch({
           type: "ADD",
-          ingredients: { id: responseData.name, ...ingredients },
+          userIngredients: { id: responseData.name, ...userIngredients },
         });
       });
   };
@@ -83,9 +89,10 @@ const Ingredients = () => {
     )
       .then((response) => {
         setIsLoading(false);
-        setUserIngredient((userIngredient) =>
-          userIngredient.filter((ingredient) => ingredient.id !== ingredientId)
-        );
+        // setUserIngredient((userIngredient) =>
+        //   userIngredient.filter((ingredient) => ingredient.id !== ingredientId)
+        // );
+        dispatch({ type: "DELETE", id: ingredientId });
       })
       .catch((error) => {
         setShowError(error.message);
@@ -97,10 +104,6 @@ const Ingredients = () => {
     setShowError(null);
   };
 
-  // Fetching data from FireBase & filtering it
-  const filterIngredientHandler = useCallback((filteredIngredient) => {
-    setUserIngredient(filteredIngredient);
-  }, []);
   return (
     <div className="App">
       {showError && (
@@ -114,7 +117,7 @@ const Ingredients = () => {
       <section>
         <Search onLoadIngredients={filterIngredientHandler} />
         <IngredientList
-          Ingredients={userIngredient}
+          Ingredients={userIngredients}
           onRemoveItem={deleteIngredientHandler}
         />
       </section>
