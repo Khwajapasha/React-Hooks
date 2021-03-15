@@ -38,8 +38,8 @@ const Ingredients = () => {
     loading: false,
     error: null,
   });
-  const [isLoading, setIsLoading] = useState(false);
-  const [showError, setShowError] = useState();
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [showError, setShowError] = useState();
   // Fetching Data from database (FireBase)
   // useEffect(() => {
   //   fetch(
@@ -108,7 +108,7 @@ const Ingredients = () => {
     // setIsLoading(true);
     dispatchHttp({ type: "SEND" });
     fetch(
-      `https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput/${ingredientId}.json`,
+      `https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput/${ingredientId}.jon`,
       {
         method: "DELETE",
       }
@@ -130,16 +130,20 @@ const Ingredients = () => {
 
   const clearErrorModal = () => {
     // setShowError(null);
+    dispatchHttp({ type: "CLEAR" });
   };
 
   return (
     <div className="App">
-      {showError && (
+      {/* {showError && (
         <ErrorModal onClose={clearErrorModal}>{showError}</ErrorModal>
+      )} */}
+      {httpState.error && (
+        <ErrorModal onClose={clearErrorModal}>{httpState.error}</ErrorModal>
       )}
       <IngredientForm
         onAddIngredient={addIngredientsHandler}
-        loading={isLoading}
+        loading={httpState.loading}
       />
 
       <section>
