@@ -26,7 +26,7 @@ const httpReducer = (currentHttpState, action) => {
     case "ERROR":
       return { loading: false, error: action.errorMessage };
     case "CLEAR":
-      return;
+      return { ...currentHttpState, error: null };
     default:
       throw new Error("Should not be reached");
   }
@@ -74,7 +74,8 @@ const Ingredients = () => {
 
   // Adding Ingredient Into List & Storing in data base (FireBase)
   const addIngredientsHandler = (Ingredients) => {
-    setIsLoading(true);
+    // setIsLoading(true);
+    dispatchHttp({ type: "SEND" }); // using useReducer
     fetch(
       "https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput.json",
       {
@@ -84,7 +85,8 @@ const Ingredients = () => {
       }
     )
       .then((response) => {
-        setIsLoading(false);
+        // setIsLoading(false);
+        dispatchHttp({ type: "RESPONSE" });
         return response.json();
       })
       .then((responseData) => {
@@ -103,7 +105,8 @@ const Ingredients = () => {
 
   // Deleting Ingredient From List
   const deleteIngredientHandler = (ingredientId) => {
-    setIsLoading(true);
+    // setIsLoading(true);
+    dispatchHttp({ type: "SEND" });
     fetch(
       `https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput/${ingredientId}.json`,
       {
