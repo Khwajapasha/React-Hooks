@@ -6,7 +6,8 @@ import ErrorModal from "../UI/ErrorModal";
 
 const ingredientReducer = (currentIngredient, action) => {
   switch (action.type) {
-    case "SEND":
+    case "SET":
+      return action.ingredients;
     case "ADD":
     case "DELETE":
     default:
