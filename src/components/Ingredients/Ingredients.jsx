@@ -114,7 +114,8 @@ const Ingredients = () => {
       }
     )
       .then((response) => {
-        setIsLoading(false);
+        // setIsLoading(false);
+        dispatchHttp({ type: "RESPONSE" });
         // setUserIngredient((userIngredient) =>
         //   userIngredient.filter((ingredient) => ingredient.id !== ingredientId)
         // );
