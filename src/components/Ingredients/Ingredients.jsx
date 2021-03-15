@@ -17,7 +17,8 @@ const ingredientReducer = (currentIngredients, action) => {
   }
 };
 const Ingredients = () => {
-  const [userIngredient, setUserIngredient] = useState([]);
+  // const [userIngredient, setUserIngredient] = useState([]);
+  const [useIngredients, dispatch] = useReducer(ingredientReducer, []);
   const [isLoading, setIsLoading] = useState(false);
   const [showError, setShowError] = useState();
   // Fetching Data from database (FireBase)
