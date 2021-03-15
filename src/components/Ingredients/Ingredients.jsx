@@ -16,7 +16,7 @@ const ingredientReducer = (currentIngredients, action) => {
       throw new Error("Should not be get ");
   }
 };
-
+// Using useReducers
 const httpReducer = (currentHttpState, action) => {
   switch (action.type) {
     case "SEND":
@@ -33,11 +33,11 @@ const httpReducer = (currentHttpState, action) => {
 };
 const Ingredients = () => {
   // const [userIngredient, setUserIngredient] = useState([]);
-  const [userIngredients, dispatch] = useReducer(ingredientReducer, []);
+  const [userIngredients, dispatch] = useReducer(ingredientReducer, []); // Using useReducer
   const [httpState, dispatchHttp] = useReducer(httpReducer, {
     loading: false,
     error: null,
-  });
+  }); // Using useReducer
   // const [isLoading, setIsLoading] = useState(false);
   // const [showError, setShowError] = useState();
   // Fetching Data from database (FireBase)
@@ -86,7 +86,7 @@ const Ingredients = () => {
     )
       .then((response) => {
         // setIsLoading(false);
-        dispatchHttp({ type: "RESPONSE" });
+        dispatchHttp({ type: "RESPONSE" }); // Using useReducer
         return response.json();
       })
       .then((responseData) => {
@@ -99,14 +99,14 @@ const Ingredients = () => {
         dispatch({
           type: "ADD",
           Ingredients: { id: responseData.name, ...Ingredients },
-        });
+        }); // Using useReducer
       });
   };
 
   // Deleting Ingredient From List
   const deleteIngredientHandler = (ingredientId) => {
     // setIsLoading(true);
-    dispatchHttp({ type: "SEND" });
+    dispatchHttp({ type: "SEND" }); // Using useReducer
     fetch(
       `https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput/${ingredientId}.jon`,
       {
@@ -115,7 +115,7 @@ const Ingredients = () => {
     )
       .then((response) => {
         // setIsLoading(false);
-        dispatchHttp({ type: "RESPONSE" });
+        dispatchHttp({ type: "RESPONSE" }); // Using useReducer
         // setUserIngredient((userIngredient) =>
         //   userIngredient.filter((ingredient) => ingredient.id !== ingredientId)
         // );
