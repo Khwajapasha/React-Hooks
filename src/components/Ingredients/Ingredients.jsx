@@ -7,9 +7,9 @@ import ErrorModal from "../UI/ErrorModal";
 const ingredientReducer = (currentIngredients, action) => {
   switch (action.type) {
     case "SET":
-      return action.userIngredients;
+      return action.ingredient;
     case "ADD":
-      return [...currentIngredients, action.userIngredients];
+      return [...currentIngredients, action.Ingredients];
     case "DELETE":
       return currentIngredients.filter((ing) => ing.id !== action.id);
     default:
@@ -50,7 +50,7 @@ const Ingredients = () => {
     // setUserIngredient(filteredIngredient);
 
     //instead of above code we can useReducer
-    dispatch({ type: "SET", userIngredients: filteredIngredient });
+    dispatch({ type: "SET", ingredient: filteredIngredient });
   }, []);
 
   // Adding Ingredient Into List & Storing in data base (FireBase)
@@ -77,7 +77,7 @@ const Ingredients = () => {
         //instead of above code we can useReducer
         dispatch({
           type: "ADD",
-          userIngredients: { id: responseData.name, ...userIngredients },
+          Ingredients: { id: responseData.name, ...Ingredients },
         });
       });
   };
