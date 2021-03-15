@@ -4,12 +4,14 @@ import Search from "./Search";
 import IngredientList from "./IngredientList";
 import ErrorModal from "../UI/ErrorModal";
 
-const ingredientReducer = (currentIngredient, action) => {
+const ingredientReducer = (currentIngredients, action) => {
   switch (action.type) {
     case "SET":
       return action.ingredients;
     case "ADD":
+      return [...currentIngredients, action.ingredients];
     case "DELETE":
+      return currentIngredients.filter((ing) => ing.id !== action.id);
     default:
       throw new Error("Should not be get ");
   }
