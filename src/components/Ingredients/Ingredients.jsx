@@ -61,10 +61,14 @@ const Ingredients = () => {
         return response.json();
       })
       .then((responseData) => {
-        setUserIngredient((userIngredient) => [
-          ...userIngredient,
-          { id: responseData.name, ...Ingredients },
-        ]);
+        // setUserIngredient((userIngredient) => [
+        //   ...userIngredient,
+        //   { id: responseData.name, ...Ingredients },
+        // ]);
+        dispatch({
+          type: "ADD",
+          ingredients: { id: responseData.name, ...ingredients },
+        });
       });
   };
 
