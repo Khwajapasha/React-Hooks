@@ -90,7 +90,7 @@ const Ingredients = () => {
     // setIsLoading(true);
     dispatchHttp({ type: "SEND" }); // Using useReducer
     fetch(
-      `https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput/${ingredientId}.jon`,
+      `https://react-hooks-49032-default-rtdb.firebaseio.com/IngredientsFromInput/${ingredientId}.json`,
       {
         method: "DELETE",
       }
