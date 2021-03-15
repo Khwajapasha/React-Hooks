@@ -7,7 +7,7 @@ import ErrorModal from "../UI/ErrorModal";
 const ingredientReducer = (currentIngredients, action) => {
   switch (action.type) {
     case "SET":
-      return action.ingredients;
+      return action.userIngredients;
     case "ADD":
       return [...currentIngredients, action.userIngredients];
     case "DELETE":
@@ -50,7 +50,7 @@ const Ingredients = () => {
     // setUserIngredient(filteredIngredient);
 
     //instead of above code we can useReducer
-    dispatch({ type: "SET", ingredients: filteredIngredient });
+    dispatch({ type: "SET", userIngredients: filteredIngredient });
   }, []);
 
   // Adding Ingredient Into List & Storing in data base (FireBase)
