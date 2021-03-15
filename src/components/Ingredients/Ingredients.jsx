@@ -122,13 +122,14 @@ const Ingredients = () => {
         dispatch({ type: "DELETE", id: ingredientId });
       })
       .catch((error) => {
-        setShowError(error.message);
-        setIsLoading(false);
+        // setShowError(error.message);
+        // setIsLoading(false);
+        dispatchHttp({ type: "ERROR", errorMessage: error.message });
       });
   };
 
   const clearErrorModal = () => {
-    setShowError(null);
+    // setShowError(null);
   };
 
   return (
