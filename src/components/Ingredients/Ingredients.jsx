@@ -3,6 +3,8 @@ import IngredientForm from "./IngredientForm";
 import Search from "./Search";
 import IngredientList from "./IngredientList";
 import ErrorModal from "../UI/ErrorModal";
+
+const ingredientReducer = (currentIngredient, action) => {};
 const Ingredients = () => {
   const [userIngredient, setUserIngredient] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
