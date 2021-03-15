@@ -12,6 +12,7 @@ const IngredientForm = React.memo((props) => {
     props.onAddIngredient({ title: enteredTitle, amount: enteredAmount });
     setEnteredTitle(" ");
     setEnteredAmount(" ");
+    console.log("RENDERING INGREDIENT FORM");
   };
 
   return (
