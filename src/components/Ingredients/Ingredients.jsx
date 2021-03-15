@@ -24,7 +24,7 @@ const httpReducer = (currentHttpState, action) => {
     case "RESPONSE":
       return { ...currentHttpState, loading: false };
     case "ERROR":
-      return;
+      return { loading: false, error: action.errorMessage };
     case "CLEAR":
       return;
     default:
