@@ -48,6 +48,8 @@ const Ingredients = () => {
   // Fetching data from FireBase & filtering it
   const filterIngredientHandler = useCallback((filteredIngredient) => {
     // setUserIngredient(filteredIngredient);
+
+    //instead of above code we can useReducer
     dispatch({ type: "SET", ingredients: filteredIngredient });
   }, []);
 
@@ -71,6 +73,8 @@ const Ingredients = () => {
         //   ...userIngredient,
         //   { id: responseData.name, ...Ingredients },
         // ]);
+
+        //instead of above code we can useReducer
         dispatch({
           type: "ADD",
           userIngredients: { id: responseData.name, ...userIngredients },
