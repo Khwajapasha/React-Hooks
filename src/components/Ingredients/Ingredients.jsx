@@ -4,7 +4,10 @@ import Search from "./Search";
 import IngredientList from "./IngredientList";
 import ErrorModal from "../UI/ErrorModal";
 
-const ingredientReducer = (currentIngredient, action) => {};
+const ingredientReducer = (currentIngredient, action) => {
+  switch (action.type) {
+  }
+};
 const Ingredients = () => {
   const [userIngredient, setUserIngredient] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
