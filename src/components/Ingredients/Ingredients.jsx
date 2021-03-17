@@ -55,7 +55,7 @@ const Ingredients = () => {
   }, []);
 
   // Adding Ingredient Into List & Storing in data base (FireBase)
-  const addIngredientsHandler = (Ingredients) => {
+  const addIngredientsHandler = useCallback((Ingredients) => {
     // setIsLoading(true);
     dispatchHttp({ type: "SEND" }); // using useReducer
     fetch(
@@ -83,7 +83,7 @@ const Ingredients = () => {
           Ingredients: { id: responseData.name, ...Ingredients },
         }); // Using useReducer
       });
-  };
+  }, []);
 
   // Deleting Ingredient From List
   const deleteIngredientHandler = (ingredientId) => {
