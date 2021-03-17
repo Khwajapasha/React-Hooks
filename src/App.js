@@ -9,12 +9,7 @@ const App = (props) => {
   if (authContext.isAuth) {
     content = <Ingredients />;
   }
-  return (
-    <div>
-      {/* <Ingredients /> */}
-      <Auth />
-    </div>
-  );
+  return <div>{content}</div>;
 };
 
 export default App;
