@@ -1,12 +1,11 @@
-import React from "react";
-import { useSlate } from "slate-react";
+import React, { useState } from "react";
 export const AuthContext = React.createContext({
   isAuth: false,
   login: () => {},
 });
 
 const AuthContextProvider = (props) => {
-  const [isAuthenticated, setIsAuthenticated] = useSlate(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const loginHandler = () => {
     setIsAuthenticated(true);
   };
