@@ -4,7 +4,10 @@ import Card from "./UI/Card";
 import "./Auth.css";
 import { AuthContext } from "../Context/AuthContext";
 const Auth = (props) => {
-  const loginHandler = () => {};
+  const authContext = useContext(AuthContext);
+  const loginHandler = () => {
+    authContext.login();
+  };
 
   return (
     <div className="auth">
