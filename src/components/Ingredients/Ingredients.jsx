@@ -86,7 +86,7 @@ const Ingredients = () => {
   }, []);
 
   // Deleting Ingredient From List
-  const deleteIngredientHandler = (ingredientId) => {
+  const deleteIngredientHandler = useCallback((ingredientId) => {
     // setIsLoading(true);
     dispatchHttp({ type: "SEND" }); // Using useReducer
     fetch(
@@ -108,7 +108,7 @@ const Ingredients = () => {
         // setIsLoading(false);
         dispatchHttp({ type: "ERROR", errorMessage: error.message });
       });
-  };
+  }, []);
 
   const clearErrorModal = () => {
     // setShowError(null);
