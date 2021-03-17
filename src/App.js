@@ -5,7 +5,8 @@ import Auth from "./components/Auth";
 const App = (props) => {
   return (
     <div>
-      <Ingredients />
+      {/* <Ingredients /> */}
+      <Auth />
     </div>
   );
 };
