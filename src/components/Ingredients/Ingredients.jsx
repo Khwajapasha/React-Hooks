@@ -110,12 +110,19 @@ const Ingredients = () => {
       });
   }, []);
 
-  const clearErrorModal = () => {
+  const clearErrorModal = useCallback(() => {
     // setShowError(null);
     dispatchHttp({ type: "CLEAR" });
-  };
+  }, []);
 
-  const ingredientList = useMemo(() => {}, []);
+  const ingredientList = useMemo(() => {
+    return (
+      <IngredientList
+        Ingredients={userIngredients}
+        onRemoveItem={deleteIngredientHandler}
+      />
+    );
+  }, [userIngredients, deleteIngredientHandler]);
   return (
     <div className="App">
       {/* {showError && (
@@ -131,10 +138,7 @@ const Ingredients = () => {
 
       <section>
         <Search onLoadIngredients={filterIngredientHandler} />
-        <IngredientList
-          Ingredients={userIngredients}
-          onRemoveItem={deleteIngredientHandler}
-        />
+        {ingredientList}
       </section>
     </div>
   );
