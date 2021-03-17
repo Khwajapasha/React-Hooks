@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useReducer } from "react";
+import React, { useEffect, useCallback, useReducer, useMemo } from "react";
 import IngredientForm from "./IngredientForm";
 import Search from "./Search";
 import IngredientList from "./IngredientList";
@@ -115,6 +115,7 @@ const Ingredients = () => {
     dispatchHttp({ type: "CLEAR" });
   };
 
+  const ingredientList = useMemo(() => {}, []);
   return (
     <div className="App">
       {/* {showError && (
